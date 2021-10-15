@@ -24,6 +24,7 @@
             "error",
             "never"
         ],
-        "no-useless-constructor": "off"
+        "no-useless-constructor": "off",
+        "constructor-super": "off"
     }
 }

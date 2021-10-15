@@ -3,14 +3,15 @@ import express from 'express';
 import { inject } from 'inversify';
 import { controller, httpDelete, httpGet, httpPatch, httpPost, interfaces, request, requestBody, requestParam, response } from 'inversify-express-utils';
 
-import TYPES from '../types';
+import TYPES from '../../types';
 import { ProductDto } from '@dtos/product.dto';
 import { ProductService } from '@services/products.service';
 
 @controller('/products')
 export class ProductController implements interfaces.Controller {
   constructor(
-    @inject(TYPES.ProductServiceInterface) private productService: ProductService
+    @inject(TYPES.ProductService)
+    private productService: ProductService
   ) {}
 
   @httpGet('/')

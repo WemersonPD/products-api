@@ -20,7 +20,8 @@ module.exports = {
         '@services': './src/services',
         '@config': './src/config',
         '@dtos': './src/dtos',
-        '@interfaces': './src/interfaces'
+        '@entities': './src/db/entities',
+        '@repositories': './src/db/repositories'
       }
     }]
   ],

@@ -1,7 +1,8 @@
 {
-  "name": "nodejs-start-mb-labs-typescript",
+  "name": "products-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/src/app.js",
+  "typings": "dist/src/app.js",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
@@ -12,6 +13,7 @@
     "@babel/preset-typescript": "^7.15.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/inversify-express-utils": "^2.0.0",
     "@types/jest": "^27.0.1",
     "@types/morgan": "^1.9.3",
     "@types/node": "^16.7.1",
@@ -32,10 +34,13 @@
     "typescript": "^4.3.5"
   },
   "scripts": {
-    "build": "babel src  --extensions .ts --out-dir dist --copy-files --no-copy-ignored",
+    "build": "rm -rf dist && babel src --extensions .ts --out-dir dist --copy-files --no-copy-ignored",
     "test": "jest",
     "prestart": "npm run build",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "migrate:create": "ts-node ./node_modules/typeorm/cli.js migration:create -n",
+    "migrate:up": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migrate:down": "ts-node ./node_modules/typeorm/cli.js migration:revert"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.14.5",
@@ -45,9 +50,12 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "inversify": "^5.1.1",
-    "inversify-express-utils": "^6.3.2",
+    "inversify": "^6.0.1",
+    "inversify-express-utils": "^6.4.0",
     "morgan": "^1.10.0",
-    "reflect-metadata": "^0.1.13"
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.3.0",
+    "typeorm": "^0.2.38"
   }
 }

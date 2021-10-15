@@ -1,10 +1,10 @@
 import { injectable } from 'inversify';
 
-import { ProductServiceInterface } from '@interfaces/productService.interface';
+import { IProductService } from './interfaces/Iproduct.service';
 import { ProductDto } from '@dtos/product.dto';
 
 @injectable()
-export class ProductService implements ProductServiceInterface {
+export class ProductService implements IProductService {
     private products: ProductDto[] = [
       {
         id: '1',

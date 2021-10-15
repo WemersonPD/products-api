@@ -24,8 +24,11 @@
       "@services/*": [
         "./src/services/*"
       ],
-      "@interfaces/*": [
-        "./src/interfaces/*"
+      "@entities/*": [
+        "./src/db/entities/*"
+      ],
+      "@repositories/*": [
+        "./src/db/repositories/*"
       ]
     },
     "esModuleInterop": true,
@@ -37,6 +40,6 @@
     "strictPropertyInitialization": false
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ]
 }
